@@ -24,6 +24,27 @@ namespace BinarySearchTreeDemo
             Console.Write(root.key + "  ");
             InorderTraversal(root.right);
         }
+
+        /// <summary>
+        /// Gets the size.
+        /// </summary>
+        /// <param name="root">The root.</param>
+        /// <returns></returns>
+        public int getSize(Node root)
+        {
+            if (root == null)
+            {
+                return 0;
+            }
+            return getSize(root.left) + 1 + getSize(root.right);
+        }
+
+        /// <summary>
+        /// Inserts the element in Tree
+        /// </summary>
+        /// <param name="root">The root.</param>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
         public static Node Insert(Node root , int key)
         {
             //start with root node
