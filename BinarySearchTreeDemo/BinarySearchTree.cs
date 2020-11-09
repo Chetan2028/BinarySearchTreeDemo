@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.Text;
 
 namespace BinarySearchTreeDemo
@@ -39,6 +40,46 @@ namespace BinarySearchTreeDemo
             return getSize(root.left) + 1 + getSize(root.right);
         }
 
+        /// <summary>
+        /// Searches the specified root.
+        /// </summary>
+        /// <param name="root">The root.</param>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
+        public bool Search(Node root , int key)
+        {
+            root = SearchRecursive(root, key);
+
+            if (root != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Searches the specified root.
+        /// </summary>
+        /// <param name="root">The root.</param>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
+        public Node SearchRecursive(Node root , int key)
+        {
+            //Base Cases : Root is null or key is present at root
+            if (root == null || root.key == key)
+            {
+                return root;
+            }
+
+            //If key is greater than root's key,search on right side
+            if (key > root.key)
+            {
+                return SearchRecursive(root.right, key);
+            }
+
+            //If key is less than root's key,search on left side
+            return SearchRecursive(root.left, key);
+        }
         /// <summary>
         /// Inserts the element in Tree
         /// </summary>
