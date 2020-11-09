@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BinarySearchTreeDemo
 {
-    class BinarySearchTree
+    public class BinarySearchTree
     {
         /// <summary>
         /// Inserts the specified root.
